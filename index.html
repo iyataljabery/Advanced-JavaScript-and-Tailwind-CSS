@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <nav class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Unit Converter</h1>
+    <div class="space-x-4">
+      <button class="tab-button text-blue-600" onclick="showTab('weight')">Weight</button>
+      <button class="tab-button" onclick="showTab('distance')">Distance</button>
+      <button class="tab-button" onclick="showTab('temperature')">Temperature</button>
+    </div>
+  </nav>
+
+  <main class="p-6">
+    <!-- Weight Tab -->
+    <section id="weight" class="tab-content">
+      <h2 class="text-lg font-semibold mb-4">Weight Converter (kg ↔ lb)</h2>
+
+      <form onsubmit="convertUnits(event, 'kg', 'lb')" class="bg-white p-4 rounded shadow mb-4">
+        <label class="block mb-2">Kilograms to Pounds:</label>
+        <input type="text" class="input" placeholder="e.g., 70 or 50,60,70" />
+        <button class="btn">Convert</button>
+        <div class="result mt-2 text-green-600 font-semibold"></div>
+      </form>
+
+      <form onsubmit="convertUnits(event, 'lb', 'kg')" class="bg-white p-4 rounded shadow">
+        <label class="block mb-2">Pounds to Kilograms:</label>
+        <input type="text" class="input" placeholder="e.g., 154 or 100,120,140" />
+        <button class="btn">Convert</button>
+        <div class="result mt-2 text-green-600 font-semibold"></div>
+      </form>
+    </section>
+
+    <!-- Distance Tab -->
+    <section id="distance" class="tab-content hidden">
+      <h2 class="text-lg font-semibold mb-4">Distance Converter (km ↔ mi)</h2>
+
+      <form onsubmit="convertUnits(event, 'km', 'mi')" class="bg-white p-4 rounded shadow mb-4">
+        <label class="block mb-2">Kilometres to Miles:</label>
+        <input type="text" class="input" placeholder="e.g., 5 or 3,4,5" />
+        <button class="btn">Convert</button>
+        <div class="result mt-2 text-green-600 font-semibold"></div>
+      </form>
+
+      <form onsubmit="convertUnits(event, 'mi', 'km')" class="bg-white p-4 rounded shadow">
+        <label class="block mb-2">Miles to Kilometres:</label>
+        <input type="text" class="input" placeholder="e.g., 3 or 1,2,3" />
+        <button class="btn">Convert</button>
+        <div class="result mt-2 text-green-600 font-semibold"></div>
+      </form>
+    </section>
+
+    <!-- Temperature Tab -->
+    <section id="temperature" class="tab-content hidden">
+      <h2 class="text-lg font-semibold mb-4">Temperature Converter (°C ↔ °F)</h2>
+
+      <form onsubmit="convertUnits(event, 'c', 'f')" class="bg-white p-4 rounded shadow mb-4">
+        <label class="block mb-2">Celsius to Fahrenheit:</label>
+        <input type="text" class="input" placeholder="e.g., 25 or 10,15,20" />
+        <button class="btn">Convert</button>
+        <div class="result mt-2 text-green-600 font-semibold"></div>
+      </form>
+
+      <form onsubmit="convertUnits(event, 'f', 'c')" class="bg-white p-4 rounded shadow">
+        <label class="block mb-2">Fahrenheit to Celsius:</label>
+        <input type="text" class="input" placeholder="e.g., 77 or 60,70,80" />
+        <button class="btn">Convert</button>
+        <div class="result mt-2 text-green-600 font-semibold"></div>
+      </form>
+    </section>
+  </main>
+
+  <style>
+    .input { @apply border border-gray-300 p-2 rounded w-full; }
+    .btn { @apply mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded; }
+  </style>
+
+</body>
+</html>
